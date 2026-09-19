@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #050508;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Efecto Galaxia Centelleante */
+.galaxy {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, rgba(0,0,0,1) 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Corazón central */
+.center-heart {
+  text-align: center;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.heart {
+  font-size: 5rem;
+  filter: drop-shadow(0 0 15px #ffd700);
+}
+
+.center-heart h2 {
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700;
+}
+
+/* Posicionamiento de Flores Alrededor */
+.flower {
+  position: absolute;
+  font-size: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: float 4s infinite ease-in-out;
+}
+
+.flower span {
+  font-size: 0.9rem;
+  color: #fff;
+  text-shadow: 0 0 5px #ffd700;
+  margin-top: 5px;
+}
+
+.f1 { top: 20%; left: 20%; animation-delay: 0s; }
+.f2 { top: 25%; right: 20%; animation-delay: 1s; }
+.f3 { bottom: 25%; left: 25%; animation-delay: 2s; }
+.f4 { bottom: 20%; right: 25%; animation-delay: 1.5s; }
+.f5 { bottom: 10%; left: 45%; animation-delay: 0.5s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
