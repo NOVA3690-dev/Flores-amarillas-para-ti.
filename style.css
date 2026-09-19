@@ -14,14 +14,13 @@ body {
   position: relative;
 }
 
-/* Fondo Galaxia Dorada Tupida */
 .gold-galaxy {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, rgba(80, 65, 0, 0.7) 0%, rgba(0,0,0,1) 85%);
+  background: radial-gradient(circle at center, rgba(100, 80, 0, 0.8) 0%, rgba(0,0,0,1) 85%);
   z-index: 1;
 }
 
@@ -29,7 +28,7 @@ body {
   position: absolute;
   background: #ffd700;
   border-radius: 50%;
-  box-shadow: 0 0 10px #ffd700, 0 0 16px #ffae00;
+  box-shadow: 0 0 10px #ffd700, 0 0 20px #ffae00;
   animation: flashGold infinite ease-in-out;
 }
 
@@ -45,42 +44,34 @@ body {
   text-align: center;
 }
 
-/* Corazón dorado brillante arriba */
 .sparkle-heart-wrapper {
   margin-bottom: 5px;
 }
 
 .sparkle-heart {
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
   background: #ffd700;
   position: relative;
   transform: rotate(-45deg);
-  box-shadow: 0 0 35px #ffd700, 0 0 70px #ffae00;
-  animation: pulseHeart 1.8s infinite ease-in-out;
-  margin: 25px auto 25px;
+  box-shadow: 0 0 40px #ffd700, 0 0 80px #ffae00;
+  animation: pulseHeart 1.6s infinite ease-in-out;
+  margin: 20px auto 25px;
 }
 
 .sparkle-heart::before,
 .sparkle-heart::after {
   content: "";
-  width: 70px;
-  height: 70px;
+  width: 75px;
+  height: 75px;
   background: #ffd700;
   border-radius: 50%;
   position: absolute;
-  box-shadow: 0 0 30px #ffd700;
+  box-shadow: 0 0 35px #ffd700;
 }
 
-.sparkle-heart::before {
-  top: -35px;
-  left: 0;
-}
-
-.sparkle-heart::after {
-  left: 35px;
-  top: 0;
-}
+.sparkle-heart::before { top: -37.5px; left: 0; }
+.sparkle-heart::after { left: 37.5px; top: 0; }
 
 .title-text {
   color: #fffbcf;
@@ -89,7 +80,6 @@ body {
   margin: 5px 0 10px;
 }
 
-/* Ramo de Rosas Amarillas */
 .rose-container {
   margin: 10px 0;
 }
@@ -100,11 +90,10 @@ body {
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid #ffd700;
-  box-shadow: 0 0 35px #ffd700, 0 0 15px rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 40px #ffd700, 0 0 20px rgba(255, 215, 0, 0.9);
   animation: floatRose 3.5s infinite ease-in-out;
 }
 
-/* Botón Reproductor */
 .player-container {
   margin-top: 10px;
 }
@@ -122,9 +111,7 @@ body {
   transition: transform 0.2s;
 }
 
-.gold-btn:active {
-  transform: scale(0.95);
-}
+.gold-btn:active { transform: scale(0.95); }
 
 .song-title {
   font-size: 0.85rem;
@@ -133,18 +120,18 @@ body {
   text-shadow: 0 0 10px #ffd700;
 }
 
-/* Distribución tupida de elementos por toda la pantalla */
+/* Llenar absolutamente toda la pantalla */
 .floating-item {
   position: absolute;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: floatAround 4s infinite ease-in-out;
+  animation: floatAround 3.8s infinite ease-in-out;
 }
 
 .floating-item span {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #ffffff;
   text-shadow: 0 0 10px #ffd700, 0 0 15px #ffae00;
   margin-top: 2px;
@@ -152,27 +139,29 @@ body {
   font-weight: 600;
 }
 
-/* Posiciones distribuidas para cubrir todos los espacios vacíos */
-.pos-1  { top: 5%;  left: 6%;  animation-delay: 0s; }
-.pos-2  { top: 6%;  right: 6%; animation-delay: 0.8s; }
-.pos-3  { bottom: 8%; left: 6%;  animation-delay: 1.6s; }
-.pos-4  { bottom: 8%; right: 6%; animation-delay: 2.4s; }
+.pos-1  { top: 4%;  left: 5%;  }
+.pos-2  { top: 5%;  right: 5%; }
+.pos-3  { bottom: 6%; left: 5%;  }
+.pos-4  { bottom: 6%; right: 5%; }
 
-.pos-5  { top: 28%; left: 3%;  animation-delay: 1.2s; }
-.pos-6  { top: 28%; right: 3%; animation-delay: 0.4s; }
+.pos-5  { top: 25%; left: 2%;  }
+.pos-6  { top: 25%; right: 2%; }
 
-.pos-7  { top: 52%; left: 5%;  animation-delay: 2s; }
-.pos-8  { top: 52%; right: 5%; animation-delay: 2.8s; }
+.pos-7  { top: 50%; left: 4%;  }
+.pos-8  { top: 50%; right: 4%; }
 
-.pos-9  { top: 75%; left: 18%; animation-delay: 0.6s; }
-.pos-10 { top: 75%; right: 18%; animation-delay: 1.4s; }
+.pos-9  { top: 72%; left: 12%; }
+.pos-10 { top: 72%; right: 12%; }
 
-.pos-11 { top: 3%;  left: 45%; transform: translateX(-50%); animation-delay: 2.2s; }
-.pos-12 { bottom: 2%; left: 50%; transform: translateX(-50%); animation-delay: 3s; }
+.pos-11 { top: 2%;  left: 50%; transform: translateX(-50%); }
+.pos-12 { bottom: 2%; left: 50%; transform: translateX(-50%); }
+
+.pos-13 { top: 38%; left: 14%; }
+.pos-14 { top: 38%; right: 14%; }
 
 @keyframes flashGold {
   0%, 100% { opacity: 0.3; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.5); }
+  50% { opacity: 1; transform: scale(1.6); }
 }
 
 @keyframes pulseHeart {
