@@ -5,116 +5,176 @@
 }
 
 body {
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  color: white;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #000000;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100vh;
   overflow: hidden;
   position: relative;
 }
 
-.stars-container {
+/* Fondo con efecto de polvo de estrellas dorado tupido */
+.gold-galaxy {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(60, 50, 0, 0.6) 0%, rgba(0,0,0,1) 80%);
+  z-index: 1;
 }
 
-.star {
+.gold-particle {
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
+  background: #ffd700;
   border-radius: 50%;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
-  animation: flash 2s infinite ease-in-out;
+  box-shadow: 0 0 8px #ffd700, 0 0 12px #ffae00;
+  animation: flashGold infinite ease-in-out;
 }
 
-.container {
+.main-content {
   position: relative;
   z-index: 10;
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.center-heart {
   text-align: center;
-  animation: pulse 2.5s infinite ease-in-out;
 }
 
-.heart {
-  font-size: 5rem;
-  filter: drop-shadow(0 0 25px #ffd700);
+/* Corazón de destellos brillantes en el centro */
+.sparkle-heart-wrapper {
+  position: relative;
+  margin-bottom: 10px;
 }
 
-.center-heart h2 {
-  color: #ffd700;
-  text-shadow: 0 0 15px #ffd700;
-  font-size: 2rem;
+.sparkle-heart {
+  width: 90px;
+  height: 90px;
+  background: #ffd700;
+  position: relative;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 30px #ffd700, 0 0 60px #ffae00;
+  animation: pulseHeart 2s infinite ease-in-out;
+  margin: 0 auto 20px;
+}
+
+.sparkle-heart::before,
+.sparkle-heart::after {
+  content: "";
+  width: 90px;
+  height: 90px;
+  background: #ffd700;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 0 30px #ffd700;
+}
+
+.sparkle-heart::before {
+  top: -45px;
+  left: 0;
+}
+
+.sparkle-heart::after {
+  left: 45px;
+  top: 0;
+}
+
+.center-text h2 {
+  color: #fffbcf;
+  font-size: 2.2rem;
+  text-shadow: 0 0 15px #ffd700, 0 0 25px #ffae00;
   margin-top: 10px;
 }
 
-.music-player {
-  margin-top: 20px;
+/* Ramo de girasoles central */
+.sunflower-bouquet {
+  margin: 10px 0;
 }
 
-.btn-play {
-  background: #ffd700;
+.bouquet-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ffd700;
+  box-shadow: 0 0 25px #ffd700;
+  animation: floatBouquet 4s infinite ease-in-out;
+}
+
+/* Contenedor del reproductor */
+.player-container {
+  margin-top: 15px;
+}
+
+.gold-btn {
+  background: linear-gradient(135deg, #ffe066 0%, #ffd700 50%, #e6b800 100%);
   color: #000;
   border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
+  padding: 12px 28px;
+  border-radius: 30px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
+  transition: transform 0.2s;
 }
 
-.btn-play.playing {
-  background: #ffffff;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+.gold-btn:active {
+  transform: scale(0.95);
 }
 
-.flower {
+.song-title {
+  font-size: 0.8rem;
+  color: #ffd700;
+  margin-top: 8px;
+  text-shadow: 0 0 8px #ffd700;
+}
+
+/* Flores y mensajes flotando alrededor */
+.floating-item {
   position: absolute;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: float 4s infinite ease-in-out;
+  animation: floatAround 5s infinite ease-in-out;
 }
 
-.flower span {
-  font-size: 0.85rem;
+.floating-item span {
+  font-size: 0.75rem;
   color: #fff;
-  text-shadow: 0 0 10px #ffd700;
-  margin-top: 5px;
+  text-shadow: 0 0 8px #ffd700;
+  margin-top: 3px;
   white-space: nowrap;
 }
 
-.f1 { top: 12%; left: 8%; animation-delay: 0s; }
-.f2 { top: 15%; right: 8%; animation-delay: 1s; }
-.f3 { bottom: 18%; left: 10%; animation-delay: 2s; }
-.f4 { bottom: 15%; right: 10%; animation-delay: 1.5s; }
-.f5 { bottom: 6%; left: 50%; transform: translateX(-50%); animation-delay: 0.5s; }
+.f1 { top: 8%; left: 8%; animation-delay: 0s; }
+.f2 { top: 10%; right: 8%; animation-delay: 1s; }
+.f3 { bottom: 12%; left: 8%; animation-delay: 2s; }
+.f4 { bottom: 10%; right: 8%; animation-delay: 1.5s; }
+.f5 { top: 48%; left: 4%; animation-delay: 2.5s; }
+.f6 { top: 48%; right: 4%; animation-delay: 0.5s; }
+.f7 { bottom: 3%; left: 50%; transform: translateX(-50%); animation-delay: 3s; }
 
-@keyframes flash {
+@keyframes flashGold {
   0%, 100% { opacity: 0.2; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.3); }
+  50% { opacity: 1; transform: scale(1.4); }
 }
 
-@keyframes float {
+@keyframes pulseHeart {
+  0%, 100% { transform: rotate(-45deg) scale(0.9); }
+  50% { transform: rotate(-45deg) scale(1.05); }
+}
+
+@keyframes floatBouquet {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes floatAround {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
 }
