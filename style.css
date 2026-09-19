@@ -5,32 +5,36 @@
 }
 
 body {
-  background: #000 url('https://image.ibb.co/n2Zy8x/stars.png') repeat top center;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   height: 100vh;
   overflow: hidden;
   position: relative;
 }
 
-/* Efecto de Estrellas Parpadeantes */
-.twinkling {
-  background: transparent url('https://image.ibb.co/ir1m8x/twinkling.png') repeat top center;
+.stars-container {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   width: 100%;
   height: 100%;
-  display: block;
-  animation: move-twink-back 200s linear infinite;
-  z-index: 1;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  animation: flash 2s infinite ease-in-out;
 }
 
 .container {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -40,33 +44,43 @@ body {
 
 .center-heart {
   text-align: center;
-  animation: pulse 2s infinite ease-in-out;
+  animation: pulse 2.5s infinite ease-in-out;
 }
 
 .heart {
-  font-size: 4.5rem;
-  filter: drop-shadow(0 0 20px #ffd700);
+  font-size: 5rem;
+  filter: drop-shadow(0 0 25px #ffd700);
 }
 
 .center-heart h2 {
   color: #ffd700;
-  text-shadow: 0 0 12px #ffd700;
-  font-size: 1.8rem;
-  margin-top: 5px;
+  text-shadow: 0 0 15px #ffd700;
+  font-size: 2rem;
+  margin-top: 10px;
 }
 
-/* Reproductor */
 .music-player {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
-.music-player audio {
-  height: 35px;
-  width: 220px;
-  opacity: 0.85;
+.btn-play {
+  background: #ffd700;
+  color: #000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  transition: all 0.3s ease;
 }
 
-/* Flores flotantes */
+.btn-play.playing {
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
 .flower {
   position: absolute;
   font-size: 2.2rem;
@@ -79,24 +93,25 @@ body {
 .flower span {
   font-size: 0.85rem;
   color: #fff;
-  text-shadow: 0 0 8px #ffd700;
-  margin-top: 4px;
+  text-shadow: 0 0 10px #ffd700;
+  margin-top: 5px;
+  white-space: nowrap;
 }
 
-.f1 { top: 15%; left: 10%; animation-delay: 0s; }
-.f2 { top: 18%; right: 10%; animation-delay: 1s; }
-.f3 { bottom: 20%; left: 12%; animation-delay: 2s; }
-.f4 { bottom: 18%; right: 12%; animation-delay: 1.5s; }
-.f5 { bottom: 8%; left: 38%; animation-delay: 0.5s; }
+.f1 { top: 12%; left: 8%; animation-delay: 0s; }
+.f2 { top: 15%; right: 8%; animation-delay: 1s; }
+.f3 { bottom: 18%; left: 10%; animation-delay: 2s; }
+.f4 { bottom: 15%; right: 10%; animation-delay: 1.5s; }
+.f5 { bottom: 6%; left: 50%; transform: translateX(-50%); animation-delay: 0.5s; }
 
-@keyframes move-twink-back {
-  from { background-position: 0 0; }
-  to { background-position: -10000px 5000px; }
+@keyframes flash {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.3); }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
 }
 
 @keyframes pulse {
