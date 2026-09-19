@@ -3,70 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Ti 💛✨</title>
+  <title>Para PAULA 💛✨</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Fondo galaxia dorada -->
   <div class="gold-galaxy" id="galaxy"></div>
 
   <div class="main-content">
-    <!-- Corazón radiante arriba -->
     <div class="sparkle-heart-wrapper">
       <div class="sparkle-heart"></div>
     </div>
 
-    <h2 class="title-text">Te amo 💛✨</h2>
+    <h2 class="title-text">Te amo PAULA 💛✨</h2>
 
-    <!-- Ramo de Rosas Amarillas Elegantes -->
+    <!-- Flores Amarillas Luminosas -->
     <div class="rose-container">
-      <img src="https://images.unsplash.com/photo-1533616688419-b7a585564566?q=80&w=600&auto=format&fit=crop" alt="Rosas Amarillas" class="rose-img">
+      <img src="https://images.unsplash.com/photo-1591886960571-74d43a9d4166?q=80&w=600&auto=format&fit=crop" alt="Flores Amarillas" class="rose-img">
     </div>
 
-    <!-- Reproductor de audio mejorado con fallback directo -->
+    <!-- Reproductor apuntando exactamente a tu archivo de WhatsApp -->
     <div class="player-container">
       <button id="playBtn" class="gold-btn">▶ Reproducir Música 🎶</button>
       <p class="song-title">🎵 Jorge Cuéllar - YUANFEN</p>
     </div>
 
-    <!-- Ramos, Rosas y frases llenando toda la pantalla -->
-    <div class="floating-item pos-1">🌹 <span>Eres mi sol 💛</span></div>
+    <!-- Elementos tupidos por toda la pantalla -->
+    <div class="floating-item pos-1">🌻 <span>Eres mi sol 💛</span></div>
     <div class="floating-item pos-2">💐 <span>Te adoro infinitamente</span></div>
-    <div class="floating-item pos-3">🌹 <span>Mi Amor 💛</span></div>
+    <div class="floating-item pos-3">🌻 <span>Mi Amor 💛</span></div>
     <div class="floating-item pos-4">💐 <span>Me encantas demasiado</span></div>
     <div class="floating-item pos-5">✨ <span>Siempre juntos 💛</span></div>
-    <div class="floating-item pos-6">🌹 <span>Amor de mi vida</span></div>
+    <div class="floating-item pos-6">🌻 <span>Tu sonrisa siempre sera mi inspiracion</span></div>
     <div class="floating-item pos-7">💐 <span>Eres mi todo ✨</span></div>
     <div class="floating-item pos-8">🦋 <span>Mi lugar seguro</span></div>
-    <div class="floating-item pos-9">💛 <span>Juntos por siempre</span></div>
-    <div class="floating-item pos-10">🌹 <span>Nunca me faltes</span></div>
-    <div class="floating-item pos-11">💐 <span>Reina de mi vida</span></div>
+    <div class="floating-item pos-9">💛 <span>te quiero mucho</span></div>
+    <div class="floating-item pos-10">🌻 <span>Nunca me faltes</span></div>
+    <div class="floating-item pos-11">💐 <span>Cositaaaa</span></div>
     <div class="floating-item pos-12">🦋 <span>Mi felicidad</span></div>
+    <div class="floating-item pos-13">✨ <span>Te amo mucho</span></div>
   </div>
 
-  <!-- Audio -->
+  <!-- Ruta con tu archivo subido de WhatsApp -->
   <audio id="audioTrack" loop preload="auto">
-    <source src="https://files.catbox.moe/u8o71v.mp3" type="audio/mpeg">
-    <source src="musica.mp3" type="audio/mpeg">
+    <source src="WhatsApp%20Audio%202026-09-19%20at%2010.35.06.mpeg" type="audio/mpeg">
+    <source src="WhatsApp Audio 2026-09-19 at 10.35.06.mpeg" type="audio/mpeg">
   </audio>
 
   <script>
-    // Generar lluvia tupida de partículas doradas flotantes
+    // Generar 400 destellos dorados para llenar por completo la pantalla
     const galaxy = document.getElementById('galaxy');
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < 400; i++) {
       const p = document.createElement('div');
       p.className = 'gold-particle';
       p.style.top = Math.random() * 100 + 'vh';
       p.style.left = Math.random() * 100 + 'vw';
-      p.style.animationDuration = (Math.random() * 3 + 1.5) + 's';
-      p.style.animationDelay = Math.random() * 3 + 's';
-      const size = (Math.random() * 5 + 1.5);
+      p.style.animationDuration = (Math.random() * 2.5 + 1) + 's';
+      p.style.animationDelay = Math.random() * 2 + 's';
+      const size = (Math.random() * 6 + 1.5);
       p.style.width = size + 'px';
       p.style.height = size + 'px';
       galaxy.appendChild(p);
     }
 
-    // Control de reproductor
     const btn = document.getElementById('playBtn');
     const audio = document.getElementById('audioTrack');
 
@@ -74,18 +72,13 @@
       if (audio.paused) {
         audio.play().then(() => {
           btn.textContent = '⏸ Pausar Música';
-          btn.classList.add('playing');
-        }).catch(err => {
-          console.log(err);
-          // Si falla por CORS, intenta reproducir desde la ruta local del repo
-          audio.src = 'musica.mp3';
-          audio.play();
-          btn.textContent = '⏸ Pausar Música';
+        }).catch(e => {
+          console.log(e);
+          alert('Presiona de nuevo para reproducir el audio');
         });
       } else {
         audio.pause();
         btn.textContent = '▶ Reproducir Música 🎶';
-        btn.classList.remove('playing');
       }
     });
   </script>
