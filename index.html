@@ -7,84 +7,58 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Fondo galaxia dorada -->
-  <div class="gold-galaxy" id="galaxy"></div>
+  <!-- Fondo dorado -->
+  <div class="gold-bg"></div>
 
-  <!-- Lluvia de pétalos amarillos -->
-  <div class="petals-container" id="petals"></div>
-
-  <div class="main-content">
-    <div class="sparkle-heart-wrapper">
-      <div class="sparkle-heart"></div>
-      <span class="heart-tag">Cositaaaa 💛</span>
+  <!-- Capa de contenido visible principal -->
+  <main class="wrapper">
+    
+    <!-- Corazón arriba -->
+    <div class="heart-box">
+      <div class="gold-heart"></div>
+      <p class="tag-top">Cositaaaa 💛</p>
     </div>
 
-    <h2 class="title-text">Te amo PAULA 💛✨</h2>
+    <!-- Título principal -->
+    <h1 class="main-title">Te amo PAULA 💛✨</h1>
 
-    <!-- Ramo de Girasoles / Flores Amarillas Reales -->
-    <div class="rose-container">
-      <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?q=80&w=800&auto=format&fit=crop" alt="Ramo de Girasoles Amarillos" class="rose-img">
+    <!-- Ramo de Girasoles Amarillos Realistas -->
+    <div class="flower-card">
+      <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?q=80&w=800&auto=format&fit=crop" alt="Ramo de Flores Amarillas" class="flower-img">
     </div>
 
-    <!-- Reproductor de audio -->
-    <div class="player-container">
-      <button id="playBtn" class="gold-btn">▶ Reproducir Música 🎶</button>
-      <p class="song-title">🎵 Jorge Cuéllar - YUANFEN</p>
+    <!-- Reproductor de Música -->
+    <div class="music-box">
+      <button id="playBtn" class="play-btn">▶ Reproducir Música 🎶</button>
+      <p class="song-label">🎵 Jorge Cuéllar - YUANFEN</p>
     </div>
 
-    <!-- Mensajes y emojis alrededor -->
-    <div class="floating-item pos-1">🌻 <span>Eres mi sol 💛</span></div>
-    <div class="floating-item pos-2">💐 <span>Te amo</span></div>
-    <div class="floating-item pos-3">🌻 <span>Mi Amor 💛</span></div>
-    <div class="floating-item pos-4">💐 <span>Me encantas demasiado</span></div>
-    <div class="floating-item pos-5">✨ <span>Siempre juntos 💛</span></div>
-    <div class="floating-item pos-6">🌻 <span>Amor de mi vida</span></div>
-    <div class="floating-item pos-7">💐 <span>Eres mi todo ✨</span></div>
-    <div class="floating-item pos-8">🦋 <span>Mi lugar seguro</span></div>
-    <div class="floating-item pos-9">💛 <span>te quiero mucho</span></div>
-    <div class="floating-item pos-10">🌻 <span>Tu tan linda y yo pendejo XD</span></div>
-    <div class="floating-item pos-11">💐 <span>Reina de mi vida</span></div>
-    <div class="floating-item pos-12">🦋 <span>Mi felicidad</span></div>
-    <div class="floating-item pos-13">✨ <span>Te amo mucho</span></div>
-    <div class="floating-item pos-14">🌻 <span>Tu sonrisa siempre sera mi inspiracion</span></div>
-  </div>
+    <!-- Elementos Flotantes Alrededor -->
+    <div class="item pos-1">🌻 <span>Eres mi sol 💛</span></div>
+    <div class="item pos-2">💐 <span>Te amo</span></div>
+    <div class="item pos-3">🌻 <span>Mi Amor 💛</span></div>
+    <div class="item pos-4">💐 <span>Me encantas demasiado</span></div>
+    <div class="item pos-5">✨ <span>Siempre juntos 💛</span></div>
+    <div class="item pos-6">🌻 <span>Hermosa</span></div>
+    <div class="item pos-7">💐 <span>Eres mi todo ✨</span></div>
+    <div class="item pos-8">🦋 <span>Mi lugar seguro</span></div>
+    <div class="item pos-9">💛 <span>te quiero mucho</span></div>
+    <div class="item pos-10">🌻 <span>Nunca me faltes</span></div>
+    <div class="item pos-11">💐 <span>Mi reyna </span></div>
+    <div class="item pos-12">🦋 <span>Mi felicidad</span></div>
+    <div class="item pos-13">✨ <span>Te amo mucho</span></div>
+    <div class="item pos-14">🌻 <span>Tu sonrisa siempre sera mi inspiracion</span></div>
 
+  </main>
+
+  <!-- Pista de audio subida -->
   <audio id="audioTrack" loop preload="auto">
     <source src="WhatsApp%20Audio%202026-09-19%20at%2010.35.06.mpeg" type="audio/mpeg">
     <source src="WhatsApp Audio 2026-09-19 at 10.35.06.mpeg" type="audio/mpeg">
   </audio>
 
   <script>
-    // Partículas doradas de fondo
-    const galaxy = document.getElementById('galaxy');
-    for (let i = 0; i < 350; i++) {
-      const p = document.createElement('div');
-      p.className = 'gold-particle';
-      p.style.top = Math.random() * 100 + 'vh';
-      p.style.left = Math.random() * 100 + 'vw';
-      p.style.animationDuration = (Math.random() * 2.5 + 1) + 's';
-      p.style.animationDelay = Math.random() * 2 + 's';
-      const size = (Math.random() * 5 + 1.5);
-      p.style.width = size + 'px';
-      p.style.height = size + 'px';
-      galaxy.appendChild(p);
-    }
-
-    // Pétalos amarillos cayendo suavemente
-    const petalsContainer = document.getElementById('petals');
-    const petalEmojis = ['🌸', '✨', '💛', '🍃'];
-    for (let i = 0; i < 30; i++) {
-      const petal = document.createElement('div');
-      petal.className = 'falling-petal';
-      petal.innerText = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
-      petal.style.left = Math.random() * 100 + 'vw';
-      petal.style.animationDuration = (Math.random() * 5 + 4) + 's';
-      petal.style.animationDelay = Math.random() * 5 + 's';
-      petal.style.fontSize = (Math.random() * 0.8 + 0.8) + 'rem';
-      petalsContainer.appendChild(petal);
-    }
-
-    // Control de música
+    // Reproducción de audio
     const btn = document.getElementById('playBtn');
     const audio = document.getElementById('audioTrack');
 
@@ -92,9 +66,8 @@
       if (audio.paused) {
         audio.play().then(() => {
           btn.textContent = '⏸ Pausar Música';
-        }).catch(e => {
-          console.log(e);
-          alert('Presiona nuevamente para escuchar.');
+        }).catch(() => {
+          alert('Toca de nuevo el botón para reproducir.');
         });
       } else {
         audio.pause();
